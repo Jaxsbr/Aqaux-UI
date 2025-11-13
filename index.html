@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Aqaux UI</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --color-background-top: #0f172a;
+            --color-background-bottom: #1e293b;
+            --color-highlight: #38bdf8;
+            --color-highlight-soft: rgba(56, 189, 248, 0.2);
+            --color-text: #f8fafc;
+            --font-primary: "Inter", "Segoe UI", -apple-system, BlinkMacSystemFont,
+                "Helvetica Neue", sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background: radial-gradient(circle at top left,
+                    var(--color-highlight-soft),
+                    transparent 50%),
+                linear-gradient(160deg,
+                    var(--color-background-top),
+                    var(--color-background-bottom));
+            color: var(--color-text);
+            font-family: var(--font-primary);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .brand-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            padding: clamp(3rem, 6vw, 5rem);
+            border-radius: 2rem;
+            background: rgba(15, 23, 42, 0.45);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 40px 70px -35px rgba(2, 6, 23, 0.8);
+            text-align: center;
+            animation: float-in 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+        }
+
+        .brand-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 2px;
+            background: linear-gradient(120deg,
+                    rgba(56, 189, 248, 0.65),
+                    rgba(96, 165, 250, 0.1),
+                    rgba(14, 165, 233, 0.65));
+            -webkit-mask:
+                linear-gradient(#000, #000) content-box,
+                linear-gradient(#000, #000);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(3.5rem, 10vw, 5.5rem);
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--color-highlight);
+            text-shadow: 0 10px 30px rgba(56, 189, 248, 0.35);
+        }
+
+        p {
+            margin: 0;
+            font-size: clamp(1rem, 2.6vw, 1.35rem);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(248, 250, 252, 0.7);
+        }
+
+        @keyframes float-in {
+            0% {
+                transform: translateY(30px) scale(0.98);
+                opacity: 0;
+            }
+
+            60% {
+                transform: translateY(-14px) scale(1.01);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="brand-card">
+        <h1>Aqaux</h1>
+        <p>Crafting experiences with clarity and flow</p>
+    </main>
+</body>
+
+</html>
